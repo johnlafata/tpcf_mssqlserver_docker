@@ -1,0 +1,22 @@
+---
+applications:
+- name: tpcf_mssqlserver_docker
+  env:
+    ACCEPT_EULA: "Y"
+    MSSQL_SA_PASSWORD: Str0ng#stS3cr3t#
+  lifecycle: docker
+  docker:
+    image: jltestcr.azurecr.io:443/mssqlserver:latest
+    username: jltestcr
+  routes:
+  - route: tpcf_mssqlserver_docker.apps.internal
+    protocol: http1
+    options: {}
+  processes:
+  - type: web
+    instances: 1
+    memory: 1024M
+    disk_quota: 2048M
+    log-rate-limit-per-second: 16K
+    health-check-type: process
+    readiness-health-check-type: process

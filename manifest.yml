@@ -1,0 +1,21 @@
+---
+applications:
+  - name: tpcf_mssqlserver_docker
+    domains:
+      - apps.internal
+    routes:
+      - route: tpcf_mssqlserver_docker.apps.internal
+      # possible to connect to this database on this address 
+      # when tcp router on and port 1433 open for this org/space and domain created for tcp.<apps-domain>
+      # - route: tcp.apps.agi-explorer.com:1433            
+    disk_quota: 2G
+    docker:
+      image: jltestcr.azurecr.io:443/mssqlserver:latest
+      username: jltestcr
+    readiness-health-check-type: process
+    health-check-type: process
+    env:
+       ACCEPT_EULA: "Y"
+       # set password in environment variable to pass to deployment
+       MSSQL_SA_PASSWORD: $MSSQL_SA_PASSWORD
+
