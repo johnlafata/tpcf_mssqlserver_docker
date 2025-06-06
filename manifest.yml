@@ -17,5 +17,5 @@ applications:
     env:
        ACCEPT_EULA: "Y"
        # set password in environment variable to pass to deployment
-       MSSQL_SA_PASSWORD: $MSSQL_SA_PASSWORD
+       MSSQL_SA_PASSWORD: "PASSWORD""
 

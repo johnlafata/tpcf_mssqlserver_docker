@@ -9,7 +9,7 @@ docker build --platform linux/amd64 -t jltestcr.azurecr.io/mssqlserver:latest .
 
 ## Run the container locally:
 ```bash
-docker run -p 1433:1433 -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Str0ng#stS3cr3t#" -it jltestcr.azurecr.io/mssqlserver:latest  
+docker run -p 1433:1433 -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Password" -it jltestcr.azurecr.io/mssqlserver:latest  
 ```
 
 ## run the container on tanzu platform for cloud foundry
